@@ -14,10 +14,14 @@
     "@angular/platform-browser": "~19.2.0",
     "@angular/platform-browser-dynamic": "~19.2.0",
     "@angular/router": "~19.2.0",
+    "@corp-products/app-core": "^3.0.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
+    "@nx/angular": "20.8.2",
     "@tailwindcss/postcss": "^4.1.12",
+    "jwt-decode": "^4.0.0",
     "rxjs": "~7.8.0",
-    "zone.js": "~0.15.0",
-    "@nx/angular": "20.8.2"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.2.0",
