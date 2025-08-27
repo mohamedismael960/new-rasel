@@ -5,9 +5,9 @@ import { CORE_CONFIG, ErrorHandlerService, GlobalHttpErrorInterceptor, HttpBaseI
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { provideLocalizationLoader } from '@new-rasel/localization';
 import { provideTranslateService } from '@ngx-translate/core';
-import { LocalizationEnum } from '@new-rasel/core';
-
-
+import { LocalizationEnum, ToasterService } from '@new-rasel/core';
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 
 export const appConfig: ApplicationConfig = {
@@ -22,6 +22,13 @@ export const appConfig: ApplicationConfig = {
       loader: provideLocalizationLoader()
     }),
 
+    provideToastr({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    provideAnimations(),
+    ToasterService,
     //start core liberary providers
     {
       provide: CORE_CONFIG,
@@ -30,10 +37,10 @@ export const appConfig: ApplicationConfig = {
         gatewayUrl: '' ,
       },
     },
-    // {
-    //   provide: TOASTER_SERVICE,
-    //   useClass: ToasterService,
-    // },
+    {
+      provide: TOASTER_SERVICE,
+      useClass: ToasterService,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpBaseInterceptor,

@@ -1,1 +1,2 @@
-export * from './lib/enums/localization.enum';
+export * from './lib/enums';
+export * from './lib/services';
