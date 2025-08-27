@@ -20,6 +20,11 @@
           {
             "glob": "**/*",
             "input": "apps/shell/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/localization/src/lib/assets/i18n",
+            "output": "/assets/i18n"
           }
         ],
         "styles": ["apps/shell/src/styles.scss"],

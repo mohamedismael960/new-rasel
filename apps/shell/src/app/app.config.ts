@@ -2,14 +2,25 @@ import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@an
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { CORE_CONFIG, ErrorHandlerService, GlobalHttpErrorInterceptor, HttpBaseInterceptor, TOASTER_SERVICE } from '@corp-products/app-core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { provideLocalizationLoader } from '@new-rasel/localization';
+import { provideTranslateService } from '@ngx-translate/core';
+import { LocalizationEnum } from '@new-rasel/core';
+
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
 
-
+    provideHttpClient(),
+    provideTranslateService({
+      lang: LocalizationEnum.EN,
+      fallbackLang: LocalizationEnum.EN,
+      loader: provideLocalizationLoader()
+    }),
 
     //start core liberary providers
     {
